@@ -25,8 +25,8 @@ Responsive Design: The application is optimized for different screen sizes and p
 
 # Project Structure
 
-Frontend: Python
+Programming Language: Python
 
-Backend: Django for processing user data, managing the database, and handling user interactions.
+Frontend: PyQt
 
 Database: MySQL for storing user information and test results.

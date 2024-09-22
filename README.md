@@ -19,8 +19,11 @@ The app guides users through a series of tests, ensuring accurate results with a
 # Features
 
 User-Friendly Interface: Clean, intuitive interface designed to make vision tests easy to perform at home.
+
 Test Storage: Stores user test results in a secure database, enabling users to track their vision health over time.
+
 Screen Calibration: Ensures accurate vision test results by adjusting the screen to real-world objects like a credit card or ID.
+
 Responsive Design: The application is optimized for different screen sizes and provides a smooth user experience.
 
 # Project Structure

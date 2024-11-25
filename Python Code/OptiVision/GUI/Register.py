@@ -9,10 +9,11 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from os import path
 
 class Ui_Register(object):
     def setupUi(self, OptiVision):
+        base_dir = path.dirname(path.abspath(__file__))
         OptiVision.setObjectName("OptiVision")
         OptiVision.resize(852, 658)
         OptiVision.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -91,7 +92,8 @@ class Ui_Register(object):
         self.OptiVision_Image.setGeometry(QtCore.QRect(10, 160, 221, 271))
         self.OptiVision_Image.setStyleSheet("background-color: rgb(246, 255, 225);")
         self.OptiVision_Image.setText("")
-        self.OptiVision_Image.setPixmap(QtGui.QPixmap("C:\\Users\\Asus\\Desktop\\OptiVision\\GUI\\Colored.jpg"))
+        Coloredpath=path.join(base_dir, "Colored.jpg")
+        self.OptiVision_Image.setPixmap(QtGui.QPixmap(Coloredpath))
         self.OptiVision_Image.setScaledContents(True)
         self.OptiVision_Image.setObjectName("OptiVision_Image")
         self.RegisterButton = QtWidgets.QPushButton(self.centralwidget)
@@ -109,8 +111,9 @@ class Ui_Register(object):
 "    background-color: rgb(237, 248, 255);\n"
 "}\n"
 "")
+        RegisterIcon=path.join(base_dir, "RegisterIcon.png")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Asus\\Desktop\\OptiVision\\GUI\\RegisterIcon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(RegisterIcon), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.RegisterButton.setIcon(icon)
         self.RegisterButton.setIconSize(QtCore.QSize(18, 18))
         self.RegisterButton.setObjectName("RegisterButton")
@@ -193,8 +196,9 @@ class Ui_Register(object):
 "}\n"
 "")
         self.backButton.setText("")
+        BackIcon=path.join(base_dir, "BackIcon.png")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("C:\\Users\\Asus\\Desktop\\OptiVision\\GUI\\BackIcon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(BackIcon), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backButton.setIcon(icon1)
         self.backButton.setIconSize(QtCore.QSize(40, 40))
         self.backButton.setCheckable(False)

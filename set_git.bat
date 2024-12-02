@@ -7,6 +7,6 @@
 ::git init
 git add .
 git commit -m "first commit"
-git branch -M Python_Code_OptiVision
+git branch -M Python_Code/OptiVision
 git remote add origin https://github.com/TameerAmer/Capstone-Project.git
-git push -u origin Python_Code_OptiVision
+git push -u origin Python_Code/OptiVision

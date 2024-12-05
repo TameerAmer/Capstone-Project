@@ -105,3 +105,29 @@ class ConnectDatabase:
                 if cursor:
                     cursor.close()
                 connection.close()
+    
+    def get_user_name(self, email):
+        connection = None
+        cursor = None
+        try:
+            connection = self.get_connection()  # Get the connection
+            if not connection:
+                return None  # Return None if connection fails
+
+            cursor = connection.cursor()  # Create the cursor from the connection
+
+            query = "SELECT Name FROM users WHERE Email = %s"
+            cursor.execute(query, (email,))
+            result = cursor.fetchone()
+
+            return result[0] if result else None
+
+        except Error as e:
+            print(f"Error fetching user name: {e}")
+            return None
+        finally:
+            if cursor:
+                cursor.close()
+            if connection:
+                connection.close()
+

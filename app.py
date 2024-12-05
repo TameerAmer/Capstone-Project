@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from DB_connection import ConnectDatabase
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Important for flash messages
+app.secret_key = 'OptiVision_Tameer_Redan'  
 
 db = ConnectDatabase()
 
@@ -18,7 +18,8 @@ def login_process():
     result = db.login(email, password)
     
     if result == "True details":
-        # Successful login logic
+        user_name = db.get_user_name(email) 
+        session['user_name'] = user_name  # Store the user's name in the session
         return redirect(url_for('dashboard'))
     elif result == "Email does not exist":
         flash('Email does not exist', 'error')
@@ -56,7 +57,15 @@ def register_process():
 
 @app.route('/dashboard')
 def dashboard():
-    return "Welcome!"
+    if 'user_name' not in session:
+        return redirect(url_for('login'))  
+    user_name = session['user_name']  # Get user name from session
+    return render_template('dashboard.html', user_name=user_name)  
+
+@app.route('/logout')
+def logout():
+    session.clear()  # Clear session data
+    return redirect(url_for('login'))  # Redirect to login page
 
 if __name__ == '__main__':
     app.run(debug=True)

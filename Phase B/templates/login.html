@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiVision - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- FontAwesome for Dark/Light Mode Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="particles-container" class="absolute top-0 left-0 w-full h-full -z-10">
+        <script>
+            const loadExternalScript = (url) => {
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement("script");
+                    script.src = url;
+                    script.async = true;
+                    script.onload = () => resolve(script);
+                    script.onerror = () => reject(new Error(`Script load error for ${url}`));
+                    document.body.appendChild(script);
+                });
+            };
+
+            window.onload = () => {
+                console.log("Page fully loaded. Initializing particles...");
+                loadExternalScript("https://cdn.jsdelivr.net/npm/tsparticles@1.37.4/tsparticles.min.js")
+                    .then(() => {
+                        const initializeParticles = () => {
+                            if (window.tsParticles) {
+                                tsParticles.load("tsparticles", {
+                                    interactivity: {
+                                        events: {
+                                            onClick: { enable: true, mode: "push" },
+                                            onHover: { enable: true, mode: "bubble" },
+                                            resize: true,
+                                        },
+                                        modes: {
+                                            bubble: {
+                                                distance: 400,
+                                                duration: 2,
+                                                opacity: 0.8,
+                                                size: 20,
+                                            },
+                                            push: { quantity: 4 },
+                                        },
+                                    },
+                                    particles: {
+                                        color: { value: "#4bc0c0" },
+                                        links: {
+                                            color: "#4bc0c0",
+                                            distance: 150,
+                                            enable: true,
+                                            opacity: 0.5,
+                                            width: 1,
+                                        },
+                                        move: {
+                                            direction: "none",
+                                            enable: true,
+                                            speed: 2,
+                                            outModes: { default: "bounce" },
+                                        },
+                                        number: {
+                                            density: { enable: true, area: 800 },
+                                            value: 80,
+                                        },
+                                        opacity: { value: 0.5 },
+                                        shape: { type: "circle" },
+                                        size: { value: 5 },
+                                    },
+                                });
+                            }
+                        };
+
+                        initializeParticles();
+                    })
+                    .catch((error) => console.error("Script loading failed.", error));
+            };
+        </script>
+
+        <div id="tsparticles"></div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="welcome-banner">
+            <h1>Welcome to OptiVision!</h1>
+            <!-- Dark/Light Mode Toggle Button with Icon -->
+            <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+        </div>
+
+        <div class="container">
+            <form action="{{ url_for('login_process') }}" method="post">
+                <h1>Log In</h1>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <input type="email" name="email" placeholder="Email*" required>
+                <input type="password" name="password" placeholder="Password*" required>
+                <button type="submit">Log In</button>
+                <a href="{{ url_for('register') }}">Register</a>
+                <a href="{{ url_for('request_password_reset') }}">Forgot your password?</a>
+            </form>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About OptiVision</h3>
+                    <p>OptiVision provides advanced tools to help you maintain your vision health. Empowering you with
+                        personalized care and early detection.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>If you have any questions or inquiries, feel free to reach out to us:</p>
+                    <p>Owners: <a href="mailto:tameer.amer@e.braude.ac.il">tameer.amer@e.braude.ac.il</a></p>
+                    <p><a href="mailto:redan.ganim@e.braude.ac.il">redan.ganim@e.braude.ac.il</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OptiVision. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+    <div id="help-icon">
+        <a href="https://www.youtube.com/watch?v=HeVl6qc_6lc" target="_blank" rel="noopener noreferrer" aria-label="Help">
+            <i class="fas fa-question-circle"></i>
+        </a>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

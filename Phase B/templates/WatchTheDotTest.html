@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiVision - Amsler Grid Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ColorVisionTest.css') }}">
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="content-container">
+            <!-- Title and Instructions -->
+            <h1 id="title">Instructions</h1>
+            <p id="instructions">
+                I) Use reading glasses if you normally wear them<br>
+                II) Keep 30-40 cm distance from screen<br>
+                III) Cover one eye at a time<br>
+                IV) Focus on the central dot<br>
+                V) Check if all lines appear straight and regular<br>
+            </p>
+
+            <!-- Start Button -->
+            <div id="test-controls" style="display: block;">
+                <button id="okButton">Start Test</button>
+            </div>
+
+            <!-- Test Area -->
+            <div id="test-area" style="display: none;">
+                <div id="dot-container" style="position: relative; margin: 20px auto;"></div>
+                <div id="options-container" class="option-buttons"></div>
+                <button id="GoBack">Go Back</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Made by Tameer and Redan.
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='WatchTheDotTest.js') }}"></script>
+</body>
+
+</html>

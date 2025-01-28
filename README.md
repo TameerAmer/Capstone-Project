@@ -14,14 +14,13 @@ OptiVision is a web-based application designed to assist users in assessing and 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Flask (Python)
-- **Database**: Amazon RDS
-- **Styling**: Tailwind CSS
+- **Database**: MySQL (Deployed on Railway) 
 - **Icons**: Font Awesome
 
 ## Installation & Setup
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/OptiVision.git
+   git clone (https://github.com/TameerAmer/OptiVision.git)
    ```
 2. Navigate to the project directory:
    ```sh
@@ -50,9 +49,9 @@ OptiVision is a web-based application designed to assist users in assessing and 
 ```
 OptiVision/
 │-- static/
-│   ├── css/
+│   ├── CSS files
+│   ├── JS files
 │   ├── images/
-│   ├── js/
 │-- templates/
 │-- app.py
 │-- requirements.txt

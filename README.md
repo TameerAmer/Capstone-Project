@@ -1,6 +1,7 @@
 # OptiVision
 
 **Link to our Youtube channel**: https://www.youtube.com/@optivision-k3t
+**Link to the original repository**: https://github.com/TameerAmer/OptiVision.git
 ## Overview
 OptiVision is a web-based application designed to assist users in assessing and monitoring their vision health. It includes multiple vision tests, personalized recommendations, and insightful reports to help users track their eye health over time.
 ## Features

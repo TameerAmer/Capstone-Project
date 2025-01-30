@@ -20,7 +20,7 @@ OptiVision is a web-based application designed to assist users in assessing and 
 ## Installation & Setup
 1. Clone the repository:
    ```sh
-   git clone (https://github.com/TameerAmer/OptiVision.git)
+   git clone https://github.com/TameerAmer/OptiVision.git
    ```
 2. Navigate to the project directory:
    ```sh
